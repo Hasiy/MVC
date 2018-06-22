@@ -1,0 +1,61 @@
+<link rel="stylesheet" type="text/css" href="http://cdn.gbtags.com/datatables/1.10.5/css/jquery.dataTables.min.css">
+
+<body>
+
+<div class="container-fluid">
+    <ol class="breadcrumb">
+        <li>开始</li>
+        <li>记录查询</li>
+        <li class="active">器材记录查询</li>
+    </ol>
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="input-group">
+                <input type="text" placeholder="输入查询信息" class="form-control" ng-model="SearchRecording" >
+                <span class="input-group-btn">
+                    <button class="btn btn-primary btn-flat" ng-click="SearchRecordingSearch()" >关键字查找</button>
+                    <button class="btn btn-warning btn-flat"  ng-click="reload()" >刷新</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="box">
+
+        <div class="box-body" style="display: block;">
+            <table id="dt" class="table table-hover table-responsive" cellspacing="0" width="100%">
+                <caption>器材总览</caption>
+                <thead>
+                <tr class="success">
+                    <th>序号</th>
+                    <th>操作人编号</th>
+                    <th>操作人</th>
+                    <th>被操作器材编号</th>
+                    <th>被操作器材</th>
+                    <th>操作时间</th>
+                    <th>操作记录</th>
+                </tr>
+                </thead>
+                <tbody>
+               <!-- <tr ng-repeat="d in dataRecordingSearch">
+                    <td ng-bind="$index+1">1</td>
+                    <td>{{d.Uid}}</td>
+                    <td>{{d.Uname}}</td>
+                    <td>{{d.TID}}</td>
+                    <td>{{d.TName}}</td>
+                    <td>{{d.TUpdateData.toLocaleString() | limitTo :12 }}</td>
+                    <td>{{d.Notes}}</td>
+                </tr>-->
+                </tbody>
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+
+</div>
+
+</body>

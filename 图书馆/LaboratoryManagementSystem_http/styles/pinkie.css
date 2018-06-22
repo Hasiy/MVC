@@ -1,0 +1,66 @@
+/*.content-wrapper{*/
+    /*position: absolute;*/
+    /*transition:all 1s linear;*/
+    /*width:100%;*/
+/*}*/
+/*.content-wrapper.ng-enter{*/
+    /*left:100%;*/
+/*}*/
+/*.content-wrapper.ng-enter-active{*/
+    /*left:0;*/
+/*}*/
+/*.content-wrapper.ng-leave{*/
+    /*left:0;*/
+/*}*/
+/*.content-wrapper.ng-leave-active{*/
+    /*left:-100%;*/
+/*}*/
+.suggest{
+    position:absolute;
+    background-color:rgba(155,155,155,1);
+    width:100%;
+    z-index: 100;
+}
+form{
+    max-width:800px;
+    margin:auto auto;
+}
+/*a{*/
+    /*list-style: none;*/
+    /*color:#fff;*/
+/*}*/
+
+th, td{
+    text-align: center;
+}
+.container-fluid .modal-dialog{
+    margin-top:25%;
+}
+.modal-content{
+    padding:5px;
+    text-align: center;
+}
+input{
+    autocomplete:off;
+}
+
+table.table,table.table tr th,table.table tr td{
+    border:1px solid #ccc;
+    vertical-align: middle;
+}
+/*控制下方空距离*/
+.titleTop{
+    margin-bottom:10px;
+}
+/*控制商城页面 边框*/
+.goods>div{
+    border:2px solid #ffffff;
+}
+.goods>div:hover{
+    cursor: pointer;
+    border:2px solid #ff0000;
+}
+/*点击忽略后背景变暗*/
+.gray{
+    background-color:gray;
+}

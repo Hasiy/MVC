@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="F:\2018毕设\王锦-基于MVC的电脑商城库存管理系统开发\程序\computerShopManagementSystem\computerShopManagementSystem"/>
+		<item value="F:\2018毕设\王锦-基于MVC的电脑商城库存管理系统开发\新建文件夹\computerShopManagementSystem"/>
+		<item value="D:\NITT培训"/>
+		<item value="D:\NETCTOSS"/>
+		<item value="D:\angular小模板"/>
+		<item value="D:\数据库"/>
+		<item value="D:\0322"/>
+		<item value="D:\bbs"/>
+		<item value="D:\数据库\BBS"/>
+		<item value="D:\bbs\BBS0328"/>
+		<item value="D:\ExpressLogistics"/>
+		<item value="D:\0324"/>
+		<item value="D:\0322\03222"/>
+	</list>
+	<section name="CleanDialogSettings">
+		<item value="500" key="DIALOG_WIDTH"/>
+		<item value="false" key="TOGGLE_SELECTED"/>
+		<item value="390" key="DIALOG_HEIGHT"/>
+		<item value="464" key="DIALOG_X_ORIGIN"/>
+		<item value="124" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="D:\mavenwork\ums20"/>
+			<item value="F:\2016上半学期文件\软件工程课程设计\AAA\D计算机132班_第二小组_学生宿舍管理系统\学生公寓管理系统"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.jdt.ui.wizards.JavaProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+		</list>
+	</section>
+	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">
+		<item value="false" key="FilterByLocation"/>
+		<item value="true" key="ShowStatusLine"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode/&gt;&#x0D;&#x0A;&lt;/History&gt;" key="History"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;workingSet workingSetName=&quot;&quot;/&gt;" key="WorkingSet"/>
+		<item value="false" key="ShowDerived"/>
+		<section name="DialogBoundsSettings">
+			<item value="600" key="DIALOG_WIDTH"/>
+			<item value="1|微软雅黑|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|微软雅黑" key="DIALOG_FONT_NAME"/>
+			<item value="500" key="DIALOG_HEIGHT"/>
+			<item value="359" key="DIALOG_X_ORIGIN"/>
+			<item value="59" key="DIALOG_Y_ORIGIN"/>
+		</section>
+	</section>
+</section>

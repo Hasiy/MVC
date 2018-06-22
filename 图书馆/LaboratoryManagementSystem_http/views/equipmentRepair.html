@@ -1,0 +1,82 @@
+
+<div class="container-fluid">
+    <ol class="breadcrumb">
+        <li>开始</li>
+        <li>器材管理</li>
+        <li class="active">器材报修</li>
+    </ol>
+
+
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <label >选择实验室</label>
+            <div class="input-group">
+                <select class="form-control"  ng-model="TClass">
+                    <option ng-repeat="d in dataClassSearch">{{d}}</option>
+                </select>
+                <span class="input-group-btn">
+                      <button class="btn btn-info pull-right" ng-click="TClassSearch()">查询</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+    <div class="box">
+
+        <div class="box-body">
+            <table class="table table-hover table-responsive">
+                <caption>{{TClass}}</caption>
+                <thead>
+                <tr class="success">
+                    <th>序号</th>
+                    <th>器材编号</th>
+                    <th>器材名称</th>
+                    <th>器材类型</th><!--物品类型（设备为1、消耗品为2）-->
+                    <th>器材数量</th>
+                    <th>器材归属教室</th><!--物品归属教室（没有归属为0，表示在库房-->
+                    <th>器材状态</th><!--物品状态（可使用为1、物品损坏为2）-->
+                    <th>器材规格</th>
+                    <th>单位</th>
+                    <th>用途说明</th>
+                    <th>报修</th>
+                    <!-- <th>使用记录</th>-->
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="d in dataSearch">
+                    <td ng-bind="$index+1">1</td>
+                    <td>{{d.TID}}</td>
+                    <td>{{d.TName}}</td>
+                    <td>{{d.TType==1?"设备":"消耗品"}}</td>
+                    <td>{{d.TCount}}</td>
+                    <td>{{d.TClass}}</td>
+                    <td>{{d.TStatus==1?"可使用":"损坏"}}</td><!--物品状态（可使用为1、物品损坏为2）-->
+                    <td>{{d.TSpec}}</td>
+                    <td>{{d.TUnit}}</td>
+                    <td>{{d.TUse}}</td>
+                    <td>
+                        <button class="btn btn-warning" data-toggle="modal" data-target="#mymodal" ng-if="d.TStatus==1?true:false" ng-click="equipmentRepair()" >确定报修</button>
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- /.box-body -->
+        <!--<div class="box-footer clearfix">
+            <ul class="pagination pull-right" >
+                <li><a href="">&laquo;</a></li>
+                <li><a href="">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+                <li><a href="">4</a></li>
+                <li><a href="">5</a></li>
+                <li><a href="">&raquo;</a></li>
+            </ul>
+        </div>-->
+    </div>
+
+
+</div>

@@ -1,0 +1,6 @@
+127.0.0.1 - - [05/Mar/2018:23:04:56 +0800] "GET / HTTP/1.1" 404 1074
+0:0:0:0:0:0:0:1 - - [05/Mar/2018:23:05:19 +0800] "POST /LaboratoryManagementSystem/LoginAction?uidlogin=1001&upwdlogin=123456 HTTP/1.1" 200 167
+0:0:0:0:0:0:0:1 - - [05/Mar/2018:23:06:45 +0800] "POST /LaboratoryManagementSystem/UserSearch?Search=SearchALL HTTP/1.1" 200 2397
+0:0:0:0:0:0:0:1 - - [05/Mar/2018:23:07:18 +0800] "POST /LaboratoryManagementSystem/UserSearch?Search=SearchALL HTTP/1.1" 200 2397
+0:0:0:0:0:0:0:1 - - [05/Mar/2018:23:07:29 +0800] "POST /LaboratoryManagementSystem/ClassSearchAll HTTP/1.1" 200 81
+0:0:0:0:0:0:0:1 - - [05/Mar/2018:23:07:31 +0800] "POST /LaboratoryManagementSystem/EquipmentSearch?Search=SearchClass&TClass=%E5%8D%9A%E5%AD%A6%E6%A5%BCb102 HTTP/1.1" 200 1388

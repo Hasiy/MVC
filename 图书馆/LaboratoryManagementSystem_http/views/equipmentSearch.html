@@ -1,0 +1,157 @@
+
+<link rel="stylesheet" type="text/css" href="http://cdn.gbtags.com/datatables/1.10.5/css/jquery.dataTables.min.css">
+
+<body>
+<div class="container-fluid">
+    <ol class="breadcrumb">
+        <li>开始</li>
+        <li>器材查询</li>
+        <li class="active">器材总览</li>
+    </ol>
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="input-group">
+                <input type="text" placeholder="输入查询信息" ng-model="Search" class="form-control">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary btn-flat" ng-click="equipmentSearch()" >关键字查找</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+
+    <div class="box">
+
+        <div class="box-body">
+            <table id="dt" class="table table-hover table-responsive" cellspacing="0" width="100%">
+                <caption>器材总览</caption>
+                <thead>
+                <tr class="success">
+
+                    <th>序号</th>
+                    <th>器材编号</th>
+                    <th>器材名称</th>
+                    <th>器材类型</th><!--物品类型（设备为1、消耗品为2）-->
+                    <th>器材数量</th><!--物品类型（设备为1、消耗品为2）-->
+                    <th>器材归属教室</th><!--物品归属教室（没有归属为0，表示在库房-->
+                    <th>器材状态</th><!--物品状态（可使用为1、物品损坏为2）-->
+                    <th>器材规格</th>
+                    <th>单位</th>
+                    <th>用途说明</th>
+                    <th>器材配置</th>
+                    <th>创建时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--<tr ng-repeat="d in dataSearch" >
+                    <td ng-bind="$index+1">1</td>
+                    <td>{{d.TID}}</td>
+                    <td>{{d.TName}}</td>
+                    <td>{{d.TType==1?"设备":"消耗品"}}</td>
+                    <td class="hidden">{{d.TCount}}</td>
+                    <td>{{d.TClass==0?"备用":d.TClass}}</td>
+                    <td>{{d.TStatus==1?"可使用":"损坏"}}</td>&lt;!&ndash;物品状态（可使用为1、物品损坏为2）&ndash;&gt;
+                    <td>{{d.TSpec}}</td>
+                    <td>{{d.TUnit}}</td>
+                    <td class="hidden">{{d.TUse}}</td>
+                    <td>{{d.TConfiguration}}</td>
+                    <td class="hidden">{{d.TCreatData}}</td>
+                    <td>
+                        <button class="btn btn-warning" data-toggle="modal" data-target="#mymodal" ng-click="look()">查看</button>
+                    </td>
+                </tr>-->
+                </tbody>
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+
+
+   <!-- <div class="modal fade" id="mymodal" data-backdrop="static" style="margin-top: -10%">
+        <div class="modal-dialog">
+            <div class="moda-header">
+            </div>
+            <div class="modal-content">
+                <table class="table table-hover table-responsive">
+                    <thead>
+                    <tr class="success">
+                        <th >物品编号</th>
+                        <th>物品名称</th>
+                        <th>物品类型</th>
+                        <th>物品数量</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr >
+                        <td>{{DpdateTID}}</td>
+                        <td>{{DpdateTName}}</td>
+                        <td>{{DpdateTType==1?"设备":"消耗品"}}</td>
+                        <td>{{DpdateTCount}}</td>
+                    </tr>
+                    <thead>
+                    <tr class="success">
+                        <th>物品归属教室</th>
+                        <th>物品状态</th>
+                        <th>物品规格</th>
+                        <th>单位</th>
+                    </tr>
+                    </thead>
+
+                    <tr>
+                        <td>{{DpdateTClass==0?"备用":DpdateTClass}}</td>
+                        <td>{{DpdateTStatus==1?"可使用":"损坏"}}</td>
+                        <td>{{DpdateTSpec}}</td>
+                        <td>{{DpdateTUnit}}</td>
+                    </tr>
+                    <thead>
+                    <tr class="success">
+                        <th>用途说明</th>
+                        <th>器材配置</th>
+                        <th colspan="2">创建时间</th>
+                    </tr>
+                    </thead>
+
+                    <tr>
+                        <td>{{DpdateTUse}}</td>
+                        <td>{{DpdateTConfiguration}}</td>
+                        <td th colspan="2">{{DpdateTCreatData}}</td>
+                    </tr>
+                </table>
+                <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modal">确定</button>
+            </div>
+        </div>
+    </div>-->
+  <!--  <div class="row">
+        <div class="col-md-4 col-lg-4">
+            <div class="box box-success collapsed-box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">全面检索</h3>
+
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                        </button>
+                    </div>
+                    &lt;!&ndash; /.box-tools &ndash;&gt;
+                </div>
+                &lt;!&ndash; /.box-header &ndash;&gt;
+                <div class="box-body" style="display: none;">
+                    <div class="input-group">
+                        <input type="text" placeholder="输入查询信息" ng-model="Search" class="form-control">
+                      <span class="input-group-btn">
+                          <button class="btn btn-primary btn-flat" ng-click="equipmentSearch()" >查找</button>
+                      </span>
+                    </div>
+                </div>
+                &lt;!&ndash; /.box-body &ndash;&gt;
+            </div>
+            &lt;!&ndash; /.box &ndash;&gt;
+        </div>
+    </div>-->
+
+
+
+</div>
+</body>

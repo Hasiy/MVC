@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 6 resources" deleteContents="true" description="Delete 6 resources" element1="/todo" element2="/todo-domain" element3="/todo-env" element4="/todo-initdb" element5="/todo-selenium" element6="/todo-web" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="6" stamp="1493820912606"/>
+</session>

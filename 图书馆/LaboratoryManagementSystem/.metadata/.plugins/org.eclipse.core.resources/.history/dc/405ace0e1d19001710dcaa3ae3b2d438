@@ -1,0 +1,89 @@
+package servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.google.gson.Gson;
+
+import bean.User;
+import service.UserService;
+import service.impl.UserServiceImpl;
+
+
+public class LoginAction extends HttpServlet {
+
+	private static final long serialVersionUID = 1L;
+
+	private final String USERNAME = "jim";
+	private final String PASSWORD = "123";
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub		
+		
+			
+	/*	ArrayList<User> us;
+		UserService se=new UserServiceImpl();
+		try {
+			us=se.queryAll();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		response.getWriter().append("served at: utf-8").append(request.getContextPath());*/
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		response.setHeader("Access-Control-Allow-Origin", "*");
+		response.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE");
+		response.setHeader("Access-Control-Max-Age", "3600");
+		response.setHeader("Access-Control-Allow-Headers", "x-requested-with, Content-Type");
+		response.setHeader("Access-Control-Allow-Credentials", "true");
+
+
+		ArrayList<User> us;
+		UserService se=new UserServiceImpl();
+		try {
+			us=se.queryAll();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		response.getWriter().append("served at: json").append(request.getContextPath());
+		
+		
+		String uname = request.getParameter("uname");
+		String pword = request.getParameter("pword");
+		PrintWriter pw = response.getWriter();
+		if (USERNAME.equals(uname) && PASSWORD.equals(pword)) {
+			pw.write("username and password is right!");
+			System.out.println(uname);
+			System.out.println(pword);
+		} else {
+			pw.write("username or password is wrong!");
+		}
+		
+		
+
+		
+		/*
+		 * UserDaoImpl ud = new UserDaoImpl(); if(ud.login(u)){ HttpSession
+		 * session = request.getSession(); session.setAttribute("user", u);
+		 * session.setAttribute("username", name);
+		 * request.getRequestDispatcher("manage.jsp").forward(request,
+		 * response); }else{ response.sendRedirect("login.html"); }
+		 */
+
+	}
+
+}

@@ -1,0 +1,166 @@
+
+<div class="container-fluid">
+    <ol class="breadcrumb">
+        <li>开始</li>
+        <li>器材管理</li>
+        <li class="active">器材修改</li>
+    </ol>
+
+    <!--<div class="box box-info" >
+        <div class="box-header with-border">
+            <h3 class="box-title">添加新用户</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+        &lt;!&ndash; /.box-header &ndash;&gt;
+        <div class="box-body" style="display: block;">
+            <div class="table-responsive">
+
+            </div>
+        </div>
+    </div>-->
+
+    <div class="row">
+
+        <div class="col-md-4 col-md-offset-2">
+            <div class="input-group">
+                <input type="text" placeholder="输入查询信息" ng-model="Search" class="form-control">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary btn-flat" ng-click="equipmentSearch()" >关键字查找</button>
+                </span>
+            </div>
+        </div>
+
+        <div class="col-md-4 ">
+            <div class="input-group">
+                <select class="form-control" ng-model="TStatus" >
+                    <option value="1">可使用</option>
+                    <option value="2">损坏</option>
+                </select>
+                <span class="input-group-btn">
+                      <button class="btn btn-info pull-right" ng-click="TStatusSearch()">状态查询</button>
+                </span>
+            </div>
+        </div>
+
+
+    </div>
+
+    <br/>
+    <div class="box">
+
+        <div class="box-body">
+            <table class="table table-hover table-responsive">
+                <caption>{{TClass}}</caption>
+                <thead>
+                <tr class="success">
+                    <th>序号</th>
+                    <th>器材编号</th>
+                    <th>器材名称</th>
+                    <th>器材类型</th><!--物品类型（设备为1、消耗品为2）-->
+                    <th>器材数量</th>
+                    <th>器材归属教室</th><!--物品归属教室（没有归属为0，表示在库房-->
+                    <th>器材状态</th><!--物品状态（可使用为1、物品损坏为2）-->
+                    <th>器材规格</th>
+                    <th>单位</th>
+                    <th>用途说明</th>
+                    <th>按钮</th>
+                    <!-- <th>使用记录</th>-->
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="d in dataSearch">
+                    <td ng-bind="$index+1">1</td>
+                    <td>{{d.TID}}</td>
+                    <td>{{d.TName}}</td>
+                    <td>{{d.TType==1?"设备":"消耗品"}}</td>
+                    <td>{{d.TCount}}</td>
+                    <td>{{d.TClass==0?"备用":d.TClass}}</td>
+                    <td>{{d.TStatus==1?"可使用":"损坏"}}</td><!--物品状态（可使用为1、物品损坏为2）-->
+                    <td>{{d.TSpec}}</td>
+                    <td>{{d.TUnit}}</td>
+                    <td>{{d.TUse}}</td>
+                    <td>
+                        <button class="btn btn-warning" data-toggle="modal" data-target="#mymodal" ng-click="updateequipment()">修改</button>
+                      <!--  <button class="btn btn-danger">删除</button>-->
+                    </td>
+                    <!-- <td>{{d.TRecord}}</td>-->
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- /.box-body -->
+        <!--<div class="box-footer clearfix">
+            <ul class="pagination pull-right" >
+                <li><a href="">&laquo;</a></li>
+                <li><a href="">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+                <li><a href="">4</a></li>
+                <li><a href="">5</a></li>
+                <li><a href="">&raquo;</a></li>
+            </ul>
+        </div>-->
+    </div>
+
+    <div class="modal fade" id="mymodal" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="moda-header">
+            </div>
+            <div class="modal-content">
+                <table class="table table-hover table-responsive">
+                    <thead>
+                    <tr class="success">
+
+                        <th>物品编号</th>
+                        <th>物品名称</th>
+                        <th>物品类型</th><!--物品类型（设备为1、消耗品为2）-->
+                        <th>物品数量</th>
+                        <th>物品归属教室</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control"ng-model="DpdateTID" readonly>
+                        </td>
+                        <td><input type="text" class="form-control"ng-model="DpdateTName"></td>
+                        <td>
+                            <select class="form-control "  ng-model="DpdateTType">
+                                <option value="1">设备</option>
+                                <option value="2">消耗品</option>
+                            </select>
+                        </td>
+                        <td><input type="text" class="form-control"ng-model="DpdateTCount"></td>
+                        <td><input type="text" class="form-control"ng-model="DpdateTClass"></td>
+                    </tr>
+
+                    <th>物品状态</th><!--物品状态（可使用为1、物品损坏为2）-->
+                    <th>物品规格</th>
+                    <th>单位</th>
+                    <th>用途说明</th>
+                    <th>器材配置</th>
+                    <tr>
+                        <td>
+                            <select class="form-control "  ng-model="DpdateTStatus">
+                                <option value="1">可使用</option>
+                                <option value="2">损坏</option>
+                            </select>
+                        </td>
+                        <td><input type="text" class="form-control"ng-model="DpdateTSpec"></td>
+                        <td><input type="text" class="form-control"ng-model="DpdateTUnit"></td>
+                        <td><input type="text" class="form-control"ng-model="DpdateTUse"></td>
+                        <td><input type="text" class="form-control"ng-model="DpdateTConfiguration"></td>
+                    </tr>
+                </table>
+
+                <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modal" ng-click="updateequipmentpass()">确定</button>
+                <button class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+
+</div>

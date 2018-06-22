@@ -1,0 +1,187 @@
+<link rel="stylesheet" type="text/css" href="http://cdn.gbtags.com/datatables/1.10.5/css/jquery.dataTables.min.css">
+
+<!--<script type="text/javascript">
+    $(document).ready(function(){
+        $("#dt").DataTable();
+    });
+</script>-->
+
+<body>
+<!--人员检索-->
+<div class="container-fluid">
+    <ol class="breadcrumb">
+        <li>开始</li>
+        <li>系统管理</li>
+        <li class="active">人员检索</li>
+    </ol>
+
+    <div class="row">
+
+        <div class="col-md-4 col-lg-4">
+            <div class="box box-success collapsed-box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">全面检索</h3>
+
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                        </button>
+
+                    </div>
+                    <!-- /.box-tools -->
+                </div>
+
+
+                <!-- /.box-header -->
+                <div class="box-body" style="display: none;">
+                    <div class="input-group">
+                        <input type="text" placeholder="输入查询信息" ng-model="Search" class="form-control">
+                      <span class="input-group-btn">
+                          <button class="btn btn-primary btn-flat" ng-click="userSearch()" >关键字查找</button>
+
+                      </span>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <div class="col-md-4 col-lg-4">
+            <div class="box box-warning collapsed-box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">权限检索</h3>
+
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                        </button>
+                    </div>
+                    <!-- /.box-tools -->
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body" style="display: none;">
+                    <div class="input-group">
+                        <div class="form-group">
+                            <select class="form-control"  ng-model="UPriority">
+                                <option value="1">管理员</option>
+                                <option value="2">实验员</option>
+                            </select>
+                        </div>
+                      <span class="input-group-btn">
+                            <button class="btn btn-info pull-right" ng-click="userSearchUPriority()">查询</button>
+
+                      </span>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <div class="col-md-4 col-lg-4">
+            <div class="box box-danger collapsed-box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">性别检索</h3>
+
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                        </button>
+                    </div>
+                    <!-- /.box-tools -->
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body" style="display: none;">
+                    <div class="input-group">
+                        <div class="form-group">
+                            <select class="form-control"  ng-model="Usex">
+                                <option value="1">男</option>
+                                <option value="2">女</option>
+                            </select>
+                        </div>
+                      <span class="input-group-btn">
+                          <button class="btn btn-info pull-right" ng-click="userSearchSex()">查询</button>
+                      </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <div class="box">
+            <div class="box-header">
+                 <button class="btn btn-warning btn-flat"  ng-click="reload()" >刷新</button>
+            </div>
+
+            <div class="box-body" style="display: block;">
+                <div class="table-responsive">
+                    <table id="dt" class="table table-hover table-responsive" cellspacing="0" width="100%">
+
+                     <!--   <table >-->
+                            <caption>用户一览</caption>
+                            <thead>
+                            <tr class="success">
+                                <th>序号</th>
+                                <th>用户姓名</th>
+                                <th>权限</th><!--权限(管理员1，普通用户2)-->
+                                <th>性别</th><!--性别（男为1、女为2）-->
+                                <th>身份证号</th>
+                                <th>职位</th>
+                                <th>专业系别</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                           <!-- <tr ng-repeat="d in dataSearch">
+                                <td ng-bind="$index+1">1</td>
+                                <td>{{d.UName}}</td>
+                                <td>{{d.UPriority==1?"管理员":"实验员"}}</td>
+                                <td>{{d.USex==1?"男":"女"}}</td>
+                                <td>{{d.UIDcard}}</td>
+                                <td>{{d.UPosition}}</td>
+                                <td>{{d.UMajor}}</td>
+                            </tr>-->
+                            </tbody>
+                       <!-- </table>-->
+                    </table>
+                   <!-- <table class="table table-hover table-responsive">
+                        <caption>用户一览</caption>
+                        <thead>
+                        <tr class="success">
+                            <th>序号</th>
+                            <th>用户姓名</th>
+                            <th>权限</th>&lt;!&ndash;权限(管理员1，普通用户2)&ndash;&gt;
+                            <th>性别</th>&lt;!&ndash;性别（男为1、女为2）&ndash;&gt;
+                            <th>身份证号</th>
+                            <th>职位</th>
+                            <th>专业系别</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="d in dataSearch">
+                            <td ng-bind="$index+1">1</td>
+                            <td>{{d.UName}}</td>
+                            <td>{{d.UPriority==1?"管理员":"实验员"}}</td>
+                            <td>{{d.USex==1?"男":"女"}}</td>
+                            <td>{{d.UIDcard}}</td>
+                            <td>{{d.UPosition}}</td>
+                            <td>{{d.UMajor}}</td>
+                        </tr>
+                        </tbody>
+                    </table>-->
+                </div>
+            </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+</body>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>实验室物品管理系统</title>
+    <link rel="shortcut icon" href="img/123.jpg" type="image/x-icon">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
+   <!-- <link rel="stylesheet" type="text/css" href="styles/boot.ionicons.min.css">-->
+  <!--  <link rel="stylesheet" type="text/css" href="styles/font-awesome.min.css">-->
+    <link rel="stylesheet" type="text/css" href="lib/AdminLTE/css/AdminLTE.css">
+    <!-- <link rel="stylesheet" type="text/css" href="lib/AdminLTE/css/skins/_all-skins.css"> -->
+    <link href="//cdn.bootcss.com/admin-lte/2.3.8/css/skins/_all-skins.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css"> -->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/pinkie.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+
+</head>
+<body class="skin-blue sidebar-mini" ng-controller="homeController" >
+<div class="wrapper">
+    <!-- 头部菜单栏 -->
+    <header class="main-header">
+        <!-- Logo -->
+        <a class="logo">
+            <span class="logo-mini">LMS</span>
+            <span class="logo-lg">实验室物品管理系统</span>
+        </a>
+        <!-- 响应式顶部导航栏 -->
+        <nav class="navbar navbar-static-top">
+            <!-- 左侧导航栏伸缩控制按钮 -->
+            <a> class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- 需要根据权限进行渲染 -->
+    <aside class="main-sidebar">
+        <section class="sidebar" style="height: auto;">
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="lib/AdminLTE/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p ng-bind="name"></p>
+                    <a><i class="fa fa-circle text-success"></i>{{Priority==1?"管理员":"实验员"}}</a>
+                </div>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="header">开始工作</li>
+                <li>
+                    <a href="#welcome">
+                        <i class="fa fa-calendar"></i>
+                        <span>我的主页</span>
+                    </a>
+                </li>
+                <li class="treeview"><!--ng-if="arr.indexOf('1')!=-1"-->
+                    <a href="">
+                        <i class="fa fa-dashboard"></i>
+                        <span >个人管理</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#userInfo"><i class="fa fa-circle-o"></i>个人信息</a></li>
+                        <li><a href="#passwordChange"><i class="fa fa-circle-o"></i>更改密码</a></li>
+                    </ul>
+                </li>
+                <li class="treeview" ng-if="judgment"><!--g管理员显示-->
+                    <a href="">
+                        <i class="fa fa-balance-scale"></i>
+                        <span >系统管理</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu" >
+                        <li><a href="#userSearch"><i class="fa fa-circle-o"></i>人员检索</a></li>
+                        <li><a href="#userManagement"><i class="fa fa-circle-o"></i>人员管理</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="">
+                        <i class="fa  fa-television"></i>
+                        <span>器材查询</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li ng-if="judgment"><a href="#equipmentSearch"><i class="fa fa-circle-o"></i>器材总览</a></li><!--g管理员显示-->
+                        <li><a href="#equipmentClassSearch"><i class="fa fa-circle-o"></i>实验室配置</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="">
+                        <i class="fa fa-files-o"></i>
+                        <span>器材管理</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#equipmentStatusSearch" ng-if="judgment"><i class="fa fa-circle-o"></i>器材修改</a></li><!--g管理员显示-->
+                        <li><a href="#equipmentADD" ng-if="judgment"><i class="fa fa-circle-o"></i>器材添加</a></li><!--g管理员显示-->
+                        <li><a href="#equipmentChange" ng-if="judgment"><i class="fa fa-circle-o"></i>器材分配</a></li><!--g管理员显示-->
+                        <li><a href="#equipmentRepair"><i class="fa fa-circle-o"></i>器材报修</a></li>
+                    </ul>
+                </li>
+                <li class="treeview" ng-if="judgment"><!--g管理员显示-->
+                    <a href="">
+                        <i class="fa fa-th"></i>
+                        <span>记录查询</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#Recording"><i class="fa fa-circle-o"></i>器材记录查询</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </aside>
+    <!-- 正文区域 -->
+    <div ui-view="main" class="content-wrapper" style="max-height: 575px; overflow-y: scroll;">
+
+    </div>
+
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 0.1a
+        </div>
+        <strong> Laboratory management system © 2018</strong>
+        All rights reserved.
+    </footer>
+
+    <aside class="control-sidebar control-sidebar-dark">
+
+    </aside>
+
+    <div class="control-sidebar-bg" style="position: fixed; height: auto;"></div>
+</div>
+<script type="text/javascript" src="lib/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="lib/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="lib/plugins/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="lib/angular/angular.min.js"></script>
+<script type="text/javascript" src="lib/angular/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="lib/AdminLTE/js/app.js"></script>
+<script type="text/javascript" src="lib/AdminLTE/js/demo.js"></script>
+<script type="text/javascript" src="lib/angular/ng-file-upload.min.js"></script>
+<script type="text/javascript" src="lib/angular/ng-file-upload-shim.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="config/router.js"></script>
+<script type="text/javascript" src="controllers/homeController.js"></script>
+<script type="text/javascript" src="controllers/welcomeController.js"></script>
+<script type="text/javascript" src="controllers/userInfoController.js"></script>
+<script type="text/javascript" src="controllers/passwordChangeController.js"></script>
+<script type="text/javascript" src="controllers/userManagementController.js"></script>
+<script type="text/javascript" src="controllers/userSearchController.js"></script>
+<script type="text/javascript" src="controllers/equipmentSearchController.js"></script>
+<script type="text/javascript" src="controllers/equipmentClassSearchController.js"></script>
+<script type="text/javascript" src="controllers/equipmentStatusSearchController.js"></script>
+<script type="text/javascript" src="controllers/equipmentADDController.js"></script>
+<script type="text/javascript" src="controllers/equipmentChangeController.js"></script>
+<script type="text/javascript" src="controllers/equipmentRepairController.js"></script>
+<script type="text/javascript" src="controllers/RecordingController.js"></script>
+<script type="text/javascript">
+    //alert(window.sessionStorage.token);
+</script>
+
+
+<!-- DataTables -->
+<script type="text/javascript" src="http://cdn.gbtags.com/datatables/1.10.5/js/jquery.dataTables.min.js"></script>
+
+
+
+</body>
+</html>

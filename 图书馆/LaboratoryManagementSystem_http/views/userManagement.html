@@ -1,0 +1,279 @@
+<!--人员管理-->
+<div class="container-fluid">
+    <ol class="breadcrumb">
+        <li>开始</li>
+        <li>系统管理</li>
+        <li class="active">人员管理</li>
+    </ol>
+
+    <div class="box box-info" >
+        <div class="box-header with-border">
+            <h3 class="box-title">添加新用户</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body" style="display: block;">
+            <div class="table-responsive">
+
+                <table class="table table-hover table-responsive">
+                    <thead>
+                    <tr class="success">
+                        <th >用户id</th>
+                        <th>用户密码</th>
+                        <th>用户姓名</th>
+                        <th>用户权限</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><input type="text" class="form-control" placeholder="用户id" ng-model="addUID"></td>
+                        <td><input type="text" class="form-control" placeholder="用户密码" ng-model="addUPwd"></td>
+                        <td><input type="text" class="form-control" placeholder="用户真实姓名" ng-model="addUName"></td>
+                        <td>
+                            <select class="form-control "  ng-model="addUPriority">
+                                <option value="1">管理员</option>
+                                <option value="2">实验员</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <th>用户性别</th>
+                    <th>用户身份证号</th>
+                    <th>用户职位</th>
+                    <th>用户专业系别</th>
+                    <tr>
+                        <td>
+                            <select class="form-control "  ng-model="addUSex">
+                                <option value="1">男</option>
+                                <option value="2">女</option>
+                            </select>
+                        </td>
+                        <td><input type="text" class="form-control" placeholder="用户身份证号" ng-model="addUIDcard"></td>
+                        <td><input type="text" class="form-control" placeholder="职位" ng-model="addUPosition"></td>
+                        <td><input type="text" class="form-control" placeholder="学院" ng-model="addUMajor"></td>
+                    </tr>
+                </table>
+
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer clearfix " style="display: block; ">
+            <button class="btn btn-info pull-right" ng-click="resetact()">重置</button>
+            <button class="btn btn-info pull-right " ng-click="adduesr()">添加</button>
+        </div>
+        <!-- /.box-footer -->
+    </div>
+
+
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">用户一览</h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-lg-4">
+                    <div class="box box-success collapsed-box">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">全面检索</h3>
+
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                            <!-- /.box-tools -->
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body" style="display: none;">
+                            <div class="input-group">
+                                <input type="text" placeholder="输入查询信息" ng-model="Search" class="form-control">
+                      <span class="input-group-btn">
+                          <button class="btn btn-primary btn-flat" ng-click="userSearch()" >查找</button>
+                      </span>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <div class="box box-warning collapsed-box">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">权限检索</h3>
+
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                            <!-- /.box-tools -->
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body" style="display: none;">
+                            <div class="input-group">
+                                <div class="form-group">
+                                    <select class="form-control "  ng-model="UPriority">
+                                        <option value="1">管理员</option>
+                                        <option value="2">实验员</option>
+                                    </select>
+                                </div>
+                      <span class="input-group-btn">
+                           <button class="btn btn-info pull-right" ng-click="userSearchUPriority()">查询</button>
+                      </span>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <div class="box box-danger collapsed-box">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">性别检索</h3>
+
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                            <!-- /.box-tools -->
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body" style="display: none;">
+                            <div class="input-group">
+                                <div class="form-group">
+                                    <select class="form-control"  ng-model="Usex">
+                                        <option value="1">男</option>
+                                        <option value="2">女</option>
+                                    </select>
+                                </div>
+                      <span class="input-group-btn">
+                           <button class="btn btn-info pull-right" ng-click="userSearchSex()">查询</button>
+                      </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.box-header -->
+
+        <div class="box">
+
+            <div class="box-body">
+                <div class="box-body" style="display: block;">
+                    <div class="table-responsive">
+
+                        <table class="table table-hover table-responsive">
+                            <thead>
+                            <tr class="success">
+                                <th>序号</th>
+                                <th >用户id</th>
+                                <th>用户姓名</th>
+                                <th>权限</th><!--权限(管理员1，普通用户2)-->
+                                <th>性别</th><!--性别（男为1、女为2）-->
+                                <th>身份证号</th>
+                                <th>职位</th>
+                                <th>专业系别</th>
+                                <th>按钮</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="d in dataSearch">
+                                <td ng-bind="$index+1">1</td>
+                                <td>{{d.UID}}</td>
+                                <td>{{d.UName}}</td>
+                                <td>{{d.UPriority==1?"管理员":"实验员"}}</td>
+                                <td>{{d.USex==1?"男":"女"}}</td>
+                                <td>{{d.UIDcard}}</td>
+                                <td>{{d.UPosition}}</td>
+                                <td>{{d.UMajor}}</td>
+                                <td>
+                                    <button class="btn btn-warning" data-toggle="modal" data-target="#mymodal" ng-click="updateuser()">修改</button>
+                                    <button class="btn btn-danger"ng-click="deleteuser()">删除</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer clearfix">
+                <ul class="pagination pull-right" >
+                    <li><a href="">&laquo;</a></li>
+                    <li><a href="">1</a></li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">3</a></li>
+                    <li><a href="">4</a></li>
+                    <li><a href="">5</a></li>
+                    <li><a href="">&raquo;</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- /.box-body -->
+
+        <!-- 修改罩窗 -->
+        <div class="modal fade" id="mymodal" data-backdrop="static">
+            <div class="modal-dialog">
+                <div class="moda-header">
+                </div>
+                <div class="modal-content">
+                    <table class="table table-hover table-responsive">
+                        <thead>
+                        <tr class="success">
+                            <th >用户id</th>
+                            <th>用户密码</th>
+                            <th>用户姓名</th>
+                            <th>用户权限</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>{{DpdateUID}}</td>
+                            <td><input type="text" class="form-control"ng-model="DpdateUPwd"></td>
+                            <td><input type="text" class="form-control"ng-model="DpdateUName"></td>
+                            <td><input type="text" class="form-control"ng-model="DpdateUPriority"></td>
+                        </tr>
+                        <th>用户性别</th>
+                        <th>用户身份证号</th>
+                        <th>用户职位</th>
+                        <th>用户专业系别</th>
+                        <tr>
+                            <td><input type="text" class="form-control"ng-model="DpdateUSex"></td>
+                            <td><input type="text" class="form-control"ng-model="DpdateUIDcard"></td>
+                            <td><input type="text" class="form-control"ng-model="DpdateUPosition"></td>
+                            <td><input type="text" class="form-control"ng-model="DpdateUMajor"></td>
+                        </tr>
+                    </table>
+                           <!-- <td>{{DpdateUID}}</td>
+                            <td>{{DpdateUPwd}}</td>
+                            <td>{{DpdateUName}}</td>
+                            <td>{{DpdateUPriority==1?"管理员":"实验员"}}</td>
+                            <td>{{DpdateUSex==1?"男":"女"}}</td>
+                            <td>{{DpdateUIDcard}}</td>
+                            <td>{{DpdateUPosition}}</td>
+                            <td>{{DpdateUMajor}}</td>-->
+                    <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modal" ng-click="updateuserpass()">确定</button>
+                    <button class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+        <!-- /.box-footer -->
+    </div>
+
+
+   <!-- <select class="form-control">
+        <option>管理员</option>
+        <option>实验员</option>
+    </select>
+-->
+
+
+
+
+</div>

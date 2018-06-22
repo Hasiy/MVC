@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+  <display-name>AngularJs</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  <!-- 处理客户端请求Servlet -->
+   <servlet>
+    <servlet-name>servletdemo</servlet-name>
+    <servlet-class>servlet.servletdemo</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>servletdemo</servlet-name>
+    <url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+  
+ <servlet>
+    <servlet-name>LoginAction</servlet-name>
+    <servlet-class>com.csii.action.login.LoginAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginAction</servlet-name>
+    <url-pattern>/loginAction.do</url-pattern>
+  </servlet-mapping>
+
+</web-app>

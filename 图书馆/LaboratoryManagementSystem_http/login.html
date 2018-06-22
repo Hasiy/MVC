@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>欢迎使用XX实验室物品管理系统</title>
+    <link rel="shortcut icon" href="img/123.jpg" type="image/x-icon">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/AdminLTE/css/AdminLTE.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/login.css">
+    <style>
+        .light{
+            background: lightgrey;
+        }
+    </style>
+</head>
+
+<body class="hold-transition login-background mybackground" ng-app="loginApp" >
+
+<div style=" min-height: 200px " ng-controller="Login">
+    <div class=" login-area-responsive" >
+        <!--logo--先不用
+        <div class="login-area-logo">
+            <b>P</b>inkie
+        </div> -->
+        <div class="login-area-body ">
+            <h3 class="text-center widget-user-username" style="font-weight:900;color: whitesmoke">欢迎登录管理平台</h3>
+            <br />
+            <!--账号-->
+            <div class="form-group has-feedback login-area " style="margin: auto">
+                <input type="text" class="form-control form-control-background input1" style="-moz-border-radius: 5px; -webkit-border-radius: 5px;font-weight:900;font-size: 18px;"   placeholder="账号："  ng-model="uidlogin">
+                <span class="glyphicon glyphicon-user form-control-feedback" ></span>
+            </div>
+            <!--密码-->
+            <br/>
+            <div class="form-group has-feedback login-area" style="margin: auto">
+                <input type="password" class="form-control form-control-background input1" style="-moz-border-radius: 5px; -webkit-border-radius: 5px; font-weight:900;font-size: 18px;" placeholder="密码："  ng-model="upwdlogin">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+
+            <br />
+            <!--登录界面-->
+            <!--<div class="row">
+                <div class="visible-lg  col-xs-8 col-xs-offset-2 col-lg-10 col-lg-offset-2" style="margin-left: 11%">
+                    <button class="visible-lg visible-md btn btn-block login-button1 loginlg" style="background-color:#434c51; width: 92%" ng-click="submit()">登&nbsp;&emsp;录</button>
+                </div>
+            </div>-->
+            <div class="row">
+                <div class=" visible-lg col-xs-8 col-xs-offset-2 col-lg-10 col-lg-offset-2" style="margin-left: auto">
+                    <button class=" visible-lg btn btn-block login-button1 loginlg" style="background-color:#434c51; width: 123%" ng-click="submit()">登&nbsp;&emsp;录</button>
+                </div>
+            </div> <!--row-->
+        </div>
+    </div> <!-- pc-login-area-responsive-->
+</div>
+
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular/angular.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="service/LoginService.js"></script>
+<script type="text/javascript" src="lib/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="//cdn.bootcss.com/fastclick/1.0.6/fastclick.js"></script>
+<script src="lib/plugins/iCheck/icheck.min.js"></script>
+</body>
+</html>

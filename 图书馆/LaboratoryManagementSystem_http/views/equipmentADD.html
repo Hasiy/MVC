@@ -1,0 +1,76 @@
+
+<div class="container-fluid">
+    <ol class="breadcrumb">
+        <li>开始</li>
+        <li>器材管理</li>
+        <li class="active">器材添加</li>
+    </ol>
+
+    <div class="box box-info" >
+        <div class="box-header with-border">
+            <h3 class="box-title">添加新器材</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body" style="display: block;">
+            <div class="table-responsive">
+
+
+                <table class="table table-hover table-responsive">
+                    <thead>
+                    <tr class="success">
+                        <th>器材编号</th>
+                        <th>器材名称</th>
+                        <th>器材类型</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="form-control" placeholder="器材编号" ng-model="addTID"></td>
+                        <td><input type="text" class="form-control" placeholder="器材名称" ng-model="addTName"></td>
+                        <td>
+                            <select class="form-control "  ng-model="addTType">
+                                <option value="1">设备</option>
+                                <option value="2">消耗品</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="success">
+                        <th>器材数量</th>
+                        <th>器材归属教室</th>
+                        <th>器材规格</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="form-control" placeholder="器材数量" ng-model="addTCount"></td>
+                        <td>
+                            <input type="text" class="form-control" placeholder="器材归属教室（没有归属为0，表示在库房）" ng-model="addTClass">
+                        </td>
+                        <td><input type="text" class="form-control" placeholder="器材规格" ng-model="addTSpec"></td>
+                    </tr>
+                    <tr class="success">
+
+                        <th>单位</th>
+                        <th>器材配置说明</th>
+                        <th>用途说明</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="form-control" placeholder="单位" ng-model="addTUnit"></td>
+                        <td><input type="text" class="form-control" placeholder="配置" ng-model="addTConfiguration"></td>
+                        <td><input type="text" class="form-control" placeholder="用途说明" ng-model="addTUse"></td>
+                    </tr>
+
+                </table>
+
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer clearfix " style="display: block; ">
+            <button class="btn btn-info pull-right" ng-click="resetact()">重置</button>
+            <button class="btn btn-info pull-right " ng-click="addequipment()">添加</button>
+        </div>
+        <!-- /.box-footer -->
+    </div>
+
+</div>

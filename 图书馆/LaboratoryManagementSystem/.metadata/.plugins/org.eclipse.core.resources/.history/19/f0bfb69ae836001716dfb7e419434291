@@ -1,0 +1,94 @@
+package jp.co.nttdata.user20.app.welcome;
+
+
+
+
+
+
+
+import javax.inject.Inject;
+
+import org.dozer.Mapper;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import jp.co.nttdata.user20.domain.model.User;
+import jp.co.nttdata.user20.domain.service.A1LoginService;
+
+@Controller
+public class A1Controller {
+	
+	
+	@Inject
+	A1LoginService a1LoginService;
+
+	@Inject
+	Mapper beanMapper;
+
+	@ModelAttribute
+	public UserForm setUpForm() {
+		UserForm form = new UserForm();
+		return form;
+	}
+
+	@RequestMapping(value = "A1_LoginInit")
+	public String a1_LoginInit(Model model) {
+		System.out.println("a1_LoginInit recalled");
+		return "login/login";
+	}
+
+	@RequestMapping(value = "A1_Login", method = RequestMethod.POST)
+	public String a1_Login(@Validated UserForm userform, BindingResult bindingResult, Model model,
+			RedirectAttributes attributes) {
+
+		System.out.println("a1_Login recalled");
+		System.out.println("userform is :"+userform);
+		
+		if (bindingResult.hasErrors()) {
+			System.out.println("bindingResult recalled");
+			return a1_LoginInit(model);
+		}
+
+		User user = beanMapper.map(userform, User.class);
+		System.out.println("beanMapper.map recalled:"+user);
+		
+		
+		if (a1LoginService.checkUserPassword(userform.getUserId(), userform.getPassword())) {
+			System.out.println("checkUserPassword true recalled");
+			return "login/top";
+		}else {
+			System.out.println("checkUserPassword false recalled");
+			return "login/login";
+		}
+		
+	}
+
+	@RequestMapping(value="A1_Register")
+	public String a1_Register(){
+		return "U3_ClearSession";
+	}
+	@RequestMapping(value="A1_Search")
+	public String a1_Search(){
+		return "U1_ClearSession";
+	}
+	@RequestMapping(value="A1_Password")
+	public String a1_Password(){
+		return "U2_PasswordInit";
+	}
+	
+	@RequestMapping(value="A1_Top")
+	public String a1_Top(){
+		return "login/top";
+	}
+	@RequestMapping(value="A1_Logout")
+	public String a1_Logout(){
+		return "login/login";
+	}
+	
+}
